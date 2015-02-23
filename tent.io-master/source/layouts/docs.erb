@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+  <head>
+    <%= partial 'head' %>
+  </head>
+  
+  <body>
+    <%= partial 'navbar' %>
+
+    <% if current_page.url == '/' %>
+      <%= partial 'intro' %>
+    <% end %>
+
+    <div class='container'>
+      <div class='row'>
+        <div class='col-md-3 col-md-offset-1 docs-nav'>
+          <ul class='nav-list'></li>
+            <li class='nav-header'>Documentation</li>
+            <%= nav_link_with_active 'Introduction', '/docs' %>
+            <%= nav_link_with_active 'Thinking with Tent', '/docs/thinking-with-tent' %>
+            <%= nav_link_with_active 'Servers & Entities', '/docs/servers-entities' %>
+            <%= nav_link_with_active 'Posts', '/docs/posts' %>
+            <%= nav_link_with_active 'Relationships', '/docs/relationships' %>
+            <%= nav_link_with_active 'Apps', '/docs/apps' %>
+            <%= nav_link_with_active 'Authentication', '/docs/authentication' %>
+            <%= nav_link_with_active 'API Endpoints', '/docs/api' %>
+            <%= nav_link_with_active 'Post Types', '/docs/post-types' %>
+            <%= nav_link_with_active 'URI Scheme', '/docs/uri-scheme' %>
+
+            <li class='divider'></li>
+
+            <li class='nav-header'>Page Contents</li>
+            <%= Redcarpet::Markdown.new(MarkdownHTMLTOC).render(File.read(current_page.source_file)) %>
+          </ul>
+        </div>
+
+        <div class='col-md-7 docs-content'>
+          <div class='alert alert-warning'>
+            <h4>Tent v0.3-WIP Documentation</h4>
+            <p><em>Note well:</em> There is no guarantee of API stability until Tent v1.0.</p>
+            <p>Please contribute by making Pull Requests and Issues on the <%= link_to 'GitHub repository', 'https://github.com/tent/tent.io' %>.</p>
+          </div>
+
+          <h1><%= current_page.data[:title] %></h4>
+
+          <%= yield %>
+        </div>
+      </div>
+
+      <div class='row'>
+        <div class='col-md-10 col-md-offset-1'>
+          <%= partial 'footer' %>
+        </div>
+      </div>
+    </div>
+
+    <%= javascript_include_tag 'docs' %>
+  </body>
+</html>

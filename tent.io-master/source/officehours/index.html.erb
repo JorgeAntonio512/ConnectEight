@@ -1,0 +1,68 @@
+---
+title: Office Hours
+layout: officehours
+---
+
+<%= javascript_include_tag 'swfobject' %>
+
+<script type="text/javascript">
+var params = {
+  src: "http://tentstream.edge.fastly-streams.com/hls/tentstream.m3u8",
+  autoPlay: "false",
+  controlBarAutoHide: "true",
+  controlBarPosition: "bottom",
+  plugin_hls: "/swfs/HLSProviderOSMF.swf",
+};
+swfobject.embedSWF(
+  "/swfs/GrindPlayer.swf",
+  "StrobeMediaPlayback",
+  640,
+  360,
+  "10.1.0",
+  null,
+  params,
+  { allowFullScreen: true, wmode: "direct" },
+  { name: "StrobeMediaPlayback" }
+);
+</script>
+
+<div class="col-md-11" id="StrobeMediaPlayback"></div>
+
+<iframe src="https://webchat.freenode.net?randomnick=1&channels=tent" id="irc-embed" style="border: 0px none transparent" height="400"></iframe>
+
+<div class='col-md-11'>
+  <h3>Previous Office Hours</h3>
+
+  <ul>
+    <li>
+      <a href="/officehours/2014-05-13">May 13, 2014</a>
+    </li>
+    <li>
+      <a href="/officehours/2014-01-28">January 28, 2014</a>
+    </li>
+    <li>
+      <a href="/officehours/2013-12-30">December 30, 2013</a>
+    </li>
+    <li>
+      <a href="/officehours/2013-11-11">November 11, 2013</a>
+    </li>
+    <li>
+      <a href="/officehours/2013-10-01">October 1, 2013</a>
+    </li>
+    <li>
+      <a href="/officehours/2013-08-06">August 6, 2013</a>
+    </li>
+    <li>
+      <a href="/officehours/2013-05-21">May 21, 2013</a>
+    </li>
+    <li>
+      <a href="/officehours/2013-03-19">March 19, 2013</a>
+    </li>
+    <li>
+      <a href="/officehours/2013-02-26">February 26, 2013</a>
+    </li>
+    <li>
+      <a href="/officehours/2013-01-22">January 22, 2013</a>
+    </li>
+  </ul>
+</div>
